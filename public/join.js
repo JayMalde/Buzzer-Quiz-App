@@ -5,6 +5,7 @@ const joined = document.querySelector('.js-joined')
 const buzzer = document.querySelector('.js-buzzer')
 const joinedInfo = document.querySelector('.js-joined-info')
 const editInfo = document.querySelector('.js-edit')
+const question = document.querySelector('.js-question')
 
 let user = {}
 
@@ -45,3 +46,8 @@ editInfo.addEventListener('click', () => {
 })
 
 getUserInfo()
+
+socket.on('question', (q) => {
+  console.log(q)
+  question.innerText=q.questionText
+})

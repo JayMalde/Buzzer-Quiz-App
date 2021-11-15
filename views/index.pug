@@ -18,6 +18,7 @@ html
         button(type='submit')='Join!'
 
       div.view.js-joined.hidden
+        p.js-question=`Question is: ${questionText}`
         button.js-buzzer.buzzer()='Buzz!!!'
         p.js-joined-info=""
         button.js-edit.secondary='Change teams'

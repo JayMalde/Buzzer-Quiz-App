@@ -15,6 +15,7 @@ let data = {
 
 const getData = () => ({
   users: [...data.users],
+  question: "",
   buzzes: [...data.buzzes].map(b => {
     const [ name, team ] = b.split('-')
     return { name, team }
@@ -45,6 +46,12 @@ io.on('connection', (socket) => {
     io.emit('buzzes', [...data.buzzes])
     console.log(`Clear buzzes`)
   })
+
+  socket.on('question', (q) => {
+    console.log(q.quest);
+    io.emit('question',{questionText:q.quest})
+  })
+ 
 })
 
 server.listen(3000, () => console.log('Listening on 3000'));

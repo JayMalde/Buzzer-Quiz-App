@@ -9,11 +9,17 @@ html
       img.logo(src='/buzzer-logo.svg')
 
     div.container
+      //- input(type='text' id='quest' placeholder='Your name' required='required' onChange="onKeyPressed1()")
+      select#propertyType.select.form-control.input-lg(form='addProperty', name='propertyType',onChange="onSelected1()")
+          option(value='0') -- Select --
+          option(value='Who is the prime minister of India?') Who is the prime minister of India?
+          option(value='Which is the national animal of India?') Which is the national animal of India?
       h2.js-active=`${users.length} joined`
       ol.js-buzzes
         each buzz in buzzes
           li=`${buzz.name} on Team ${buzz.team}`
       button.js-clear='Clear buzzes'
+      button.js-question='Send Question'
 
     script(src='/socket.io/socket.io.js')
     script(src='/host.js')

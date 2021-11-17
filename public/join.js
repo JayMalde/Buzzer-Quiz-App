@@ -48,6 +48,6 @@ editInfo.addEventListener('click', () => {
 getUserInfo()
 
 socket.on('question', (q) => {
-  console.log(q)
+  console.log(q.questionText)
   question.innerText=q.questionText
 })

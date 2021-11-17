@@ -2,9 +2,8 @@ const socket = io()
 const active = document.querySelector('.js-active')
 const buzzList = document.querySelector('.js-buzzes')
 const clear = document.querySelector('.js-clear')
+const clearQuestion = document.querySelector('.js-clear-question')
 const question = document.querySelector('.js-question')
-var quest="No Question";
-// var quest=["Who is the prime minister of India?","Which is the national animal of India?"];
 var propertyType=document.getElementById('propertyType');
 
 socket.on('active', (numberActive) => {
@@ -25,27 +24,26 @@ clear.addEventListener('click', () => {
   socket.emit('clear')
 })
 
+clearQuestion.addEventListener('click', () => {
+  socket.emit('question',{quest:questionText="Question is Cleared"})
+})
+
 function onKeyPressed1()
 {
   // const quest1 = document.getElementById('quest').value
   // quest=quest1
   console.log(quest);
 }
-
+var questionText="";
 function onSelected1()
 {
-  for (var i = 0; i < propertyType.options.length; i++) {
-    if(propertyType.options[i].selected='selected')
-    {
-      quest=propertyType.options[i].value;
-    }
-    else{
-      quest="No Question Selected"
-    }
-  }
+    var quest=["Demo Question","Who is the prime minister of India?","Which is the national animal of India?"];
+    d = document.getElementById("select_id").value;
+    alert(d);
+    questionText=quest[d].toString()
+  socket.emit('question',{quest:questionText})
 }
-
-question.addEventListener('click',()=>{
-  console.log(quest)
-  socket.emit('question',{quest:quest})
-})
+// question.addEventListener('click',()=>{
+//   // console.log(quest)
+//   socket.emit('question',{quest:questionText})
+// })  

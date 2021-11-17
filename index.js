@@ -47,6 +47,11 @@ io.on('connection', (socket) => {
     console.log(`Clear buzzes`)
   })
 
+  socket.on('clearQuestion', (q) => {
+    console.log("Question Cleared")
+    io.emit('question',{questionText:q.quest})
+  })
+
   socket.on('question', (q) => {
     console.log(q.quest);
     io.emit('question',{questionText:q.quest})

@@ -21,6 +21,9 @@ html
       button.js-clear='Clear buzzes'
       button.js-clear-question='Clear Question'
       //- button.js-question='Send Question'
+      hr
+      form(action="/logout")
+        button="Logout"
 
     script(src='/socket.io/socket.io.js')
     script(src='/host.js')

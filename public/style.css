@@ -26,6 +26,7 @@
   
   p {
     margin: 2em 0;
+    font-size: 28px;
   }
   
   ol {
@@ -120,7 +121,7 @@
   }
   
   .buzzer {
-    height: 10em;
+    height: 6em;
     font-size: 2em;
     background-color: rgb(243, 175, 185);
     color: rgb(18, 30, 102);

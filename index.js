@@ -5,7 +5,7 @@ const socketio = require('socket.io')
 const app = express();
 const server = http.Server(app);
 const io = socketio(server);
-
+const session = require('express-session');
 const title = 'Buffer Buzzer'
 
 let data = {
@@ -23,10 +23,45 @@ const getData = () => ({
 })
 
 app.use(express.static('public'))
+app.use(session({
+  secret: '2C44-4D44-WppQ38S',
+  resave: true,
+  saveUninitialized: true
+}));
 app.set('view engine', 'pug')
 
+
+
+var auth = function(req, res, next) {
+  if (req.session && req.session.user === "admin" && req.session.admin)
+    return next();
+  else
+    return res.sendStatus(401);
+};
+
 app.get('/', (req, res) => res.render('index', { title }))
-app.get('/host', (req, res) => res.render('host', Object.assign({ title }, getData())))
+app.get('/host', auth,(req, res) => res.render('host', Object.assign({ title }, getData())))
+
+app.get('/admin', (req, res) => {
+    res.sendFile(__dirname + '/views/login.html');
+});
+ 
+app.get('/login', function (req, res) {
+  if (!req.query.username || !req.query.password) {
+    res.send("<h1>Login Failed</h1>");
+  } else if(req.query.username === "admin" || req.query.password === "adminpassword") {
+    req.session.user = "admin";
+    req.session.admin = true;
+    res.redirect("/host");
+  }
+});
+ 
+// Logout endpoint
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.send("<h1>logout success!</h1>");
+});
+
 
 io.on('connection', (socket) => {
   socket.on('join', (user) => {
@@ -59,4 +94,4 @@ io.on('connection', (socket) => {
  
 })
 
-server.listen((process.env.PORT || 5000), () => console.log('Listening on 3000'));
+server.listen((process.env.PORT || 3000), () => console.log('Listening on 3000'));

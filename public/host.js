@@ -28,12 +28,12 @@ clearQuestion.addEventListener('click', () => {
   socket.emit('question',{quest:questionText="Question is Cleared"})
 })
 
-function onKeyPressed1()
-{
+// function onKeyPressed1()
+// {
   // const quest1 = document.getElementById('quest').value
   // quest=quest1
-  console.log(quest);
-}
+  // console.log(quest);
+// }
 var questionText="";
 function onSelected1()
 {

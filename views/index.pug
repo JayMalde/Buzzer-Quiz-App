@@ -11,7 +11,7 @@ html
 
     div.container
       form.view.js-join
-        img(src="/lets-play.png" class="main-image")
+        img(src="/quizzard_logo.png" class="main-image")
         h2="Let's play!"
         input(type='text' name='name' placeholder='Your name' required='required')
         input(type='number' name='team' placeholder='Your team number' required='required')
@@ -21,6 +21,7 @@ html
         p.js-question=`Question is: ${questionText}`
         button.js-buzzer.buzzer()='Buzz!!!'
         p.js-joined-info=""
+        p(style="color:red;font-size:20px;")="Note: Once joined Don't refresh or Press F5"
         
     script(src='/socket.io/socket.io.js')
     script(src='/join.js')

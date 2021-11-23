@@ -11,16 +11,24 @@ html
     div.container
       //- input(type='text' id='quest' placeholder='Your name' required='required' onChange="onKeyPressed1()")
       select(id="select_id",onChange="onSelected1()")
-          option(value='0') -- Select --
-          option(value="1") Question 1
-          option(value="2") Question 2
+          option(value='0') Demo Question 1
+          option(value='1') Demo Question 2
+          option(value="2") Question 1
+          option(value="3") Question 2
+          option(value="4") Question 3
+          option(value="5") Question 4
+          option(value="6") Question 5
+          option(value="7") Question 6
+          option(value="8") Question 7
+          option(value="9") Question 8
+          option(value="10") Question 9
+          option(value="11") Question 10
       h2.js-active=`${users.length} joined`
       ol.js-buzzes
         each buzz in buzzes
           li=`${buzz.name} on Team ${buzz.team}`
       button.js-clear='Clear buzzes'
       button.js-clear-question='Clear Question'
-      //- button.js-question='Send Question'
       hr
       form(action="/logout")
         button="Logout"

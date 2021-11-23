@@ -37,7 +37,7 @@ clearQuestion.addEventListener('click', () => {
 var questionText="";
 function onSelected1()
 {
-    var quest=["Demo Question","Who is the prime minister of India?","Which is the national animal of India?"];
+    var quest=["Demo Question 1","Demo Question 2","Which of the following were never awarded a Nobel prize?","For how long, a joint sitting of both the houses of parliament may be convened to consider a bill which was passed by one house and pending in another house?","What do you mean by a mixed economy?","Which country made the first declaration of War?","Who among the following wrote Sanskrit grammar?","A line which cuts a pair of parallel lines is called?","Who won the IPL title in 2016?","Who was the second person on Moon?","Which two countries were the first to declare war on Germany?","What was the name of Gautam Buddha's only son?"];
     d = document.getElementById("select_id").value;
     alert(d);
     questionText=quest[d].toString()

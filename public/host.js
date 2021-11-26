@@ -37,7 +37,21 @@ clearQuestion.addEventListener('click', () => {
 var questionText="";
 function onSelected1()
 {
-    var quest=["Demo Question 1","Demo Question 2","Which of the following were never awarded a Nobel prize?","For how long, a joint sitting of both the houses of parliament may be convened to consider a bill which was passed by one house and pending in another house?","What do you mean by a mixed economy?","Which country made the first declaration of War?","Who among the following wrote Sanskrit grammar?","A line which cuts a pair of parallel lines is called?","Who won the IPL title in 2016?","Who was the second person on Moon?","Which two countries were the first to declare war on Germany?","What was the name of Gautam Buddha's only son?"];
+    var quest=
+    [
+      "Demo Question 1",
+      "Demo Question 2",
+      "Which of the following were never awarded a Nobel prize? Options \nA) Mahatma Gandhi\nB) Nelson Mandela\nC) Martin Luther King\nD) Malala Yousafzai",
+      "For how long, a joint sitting of both the houses of parliament may be convened to consider a bill which was passed by one house and pending in another house? Options \nA) 3 Months\nB) 6 Months\nC) 9 Months\nD) 12 Months",
+      "What do you mean by a mixed economy? Options \nA) Modern and traditional industries \nB) Foreign and domestic investment \nC) Public and private sectors \nD) Commercial and subsistence farming",
+      "Which country made the first declaration of War? Options \nA) USSR \nB) Austria \nC) Poland \nD) Germany",
+      "Who among the following wrote Sanskrit grammar? Options \nA) Kalidas \nB) Aryabhatt \nC) Charak \nD) Panini",
+      "A line which cuts a pair of parallel lines is called? Options \nA) Tangent \nB) Intersector \nC) traversal \nD) chord",
+      "Who won the IPL title in 2016? Options Options \nA) Mumbai Indians \nB) Chennai Super Kings \nC) Sunrisers Hyderbad \nD) Royal Challengers Banglore",
+      "Who was the second person on Moon? Options \nA) Michael Collins \nB) Neil A. Armstrong \nC) Edwin E \nD)Buzz Aldrin",
+      "Which two countries were the first to declare war on Germany? Options \nA) Italy and Greece \nB) Norway and Denmark \nC) Britain and France \nD) The US and The USSR",
+      "What was the name of Gautam Buddha's only son? Options \nA) Rahul \nB) Chunda \nC) Channa \nD) Kanthala"
+    ];
     d = document.getElementById("select_id").value;
     alert(d);
     questionText=quest[d].toString()
